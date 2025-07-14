@@ -1,24 +1,18 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif;
   background-color: #f0f4f8;
   color: #333;
   margin: 20px;
-}
-
-h1 {
-  text-align: center;
-  color: #004080;
 }
 
 #malla {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  padding: 20px;
 }
 
 .cuatrimestre {
-  background-color: #ffffff;
+  background-color: #fff;
   border-left: 6px solid #004080;
   padding: 15px;
   border-radius: 8px;
@@ -64,7 +58,7 @@ h1 {
 }
 
 .modal-content {
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 20px;
   width: 90%;
   max-width: 400px;
