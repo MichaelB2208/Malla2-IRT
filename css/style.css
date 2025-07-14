@@ -31,6 +31,11 @@ body {
   border-left: 4px solid #0066cc;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.materia:hover {
+  background-color: #cce0ff;
 }
 
 .materia.habilitada {
@@ -88,6 +93,7 @@ body {
   margin-top: 15px;
   cursor: pointer;
   border-radius: 6px;
+  width: 100%;
 }
 
 #aprobar-btn:hover {
