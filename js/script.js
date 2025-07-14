@@ -25,6 +25,7 @@ fetch('data/pensum.json')
     };
 
     const exportarPDF = () => {
+      const aprobadasArray = [...aprobadas];
       let contenido = "Materias Aprobadas:\n\n";
 
       for (const cuatri in data) {
@@ -101,9 +102,18 @@ fetch('data/pensum.json')
             modal.classList.remove('hidden');
 
             const aprobarBtn = document.getElementById('aprobar-btn');
-            aprobarBtn.textContent = aprobadas.has(materia.id)
-              ? 'Desmarcar como Aprobada'
-              : 'Marcar como Aprobada';
+
+            const actualizarBoton = () => {
+              if (aprobadas.has(materia.id)) {
+                aprobarBtn.textContent = 'Desmarcar como Aprobada';
+                aprobarBtn.classList.add('desmarcar');
+              } else {
+                aprobarBtn.textContent = 'Marcar como Aprobada';
+                aprobarBtn.classList.remove('desmarcar');
+              }
+            };
+
+            actualizarBoton();
 
             aprobarBtn.onclick = () => {
               if (aprobadas.has(materia.id)) {
@@ -112,6 +122,7 @@ fetch('data/pensum.json')
                 aprobadas.add(materia.id);
               }
               localStorage.setItem('aprobadas', JSON.stringify([...aprobadas]));
+              actualizarBoton();
               modal.classList.add('hidden');
               renderMalla();
               calcularCreditos();
