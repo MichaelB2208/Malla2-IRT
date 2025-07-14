@@ -2,7 +2,22 @@ fetch('pensum.json')
   .then(response => response.json())
   .then(data => {
     const malla = document.getElementById('malla');
-    const aprobadas = new Set(JSON.parse(localStorage.getItem('aprobadas')) || []);
+    const creditosSpan = document.getElementById('creditos-aprobados');
+    const resetBtn = document.getElementById('reset-btn');
+
+    let aprobadas = new Set(JSON.parse(localStorage.getItem('aprobadas')) || []);
+
+    const calcularCreditos = () => {
+      let total = 0;
+      for (const materias of Object.values(data)) {
+        materias.forEach(materia => {
+          if (aprobadas.has(materia.id)) {
+            total += parseInt(materia.creditos);
+          }
+        });
+      }
+      creditosSpan.textContent = total;
+    };
 
     const renderMalla = () => {
       malla.innerHTML = '';
@@ -60,6 +75,7 @@ fetch('pensum.json')
               localStorage.setItem('aprobadas', JSON.stringify([...aprobadas]));
               modal.classList.add('hidden');
               renderMalla();
+              calcularCreditos();
             };
           });
 
@@ -70,7 +86,15 @@ fetch('pensum.json')
       }
     };
 
-    renderMalla();
+    // Botón reset
+    resetBtn.addEventListener('click', () => {
+      if (confirm('¿Estás seguro de que deseas reiniciar la malla?')) {
+        aprobadas.clear();
+        localStorage.removeItem('aprobadas');
+        renderMalla();
+        calcularCreditos();
+      }
+    });
 
     document.querySelector('.close-btn').addEventListener('click', () => {
       document.getElementById('modal').classList.add('hidden');
@@ -82,5 +106,8 @@ fetch('pensum.json')
         modal.classList.add('hidden');
       }
     });
+
+    renderMalla();
+    calcularCreditos();
   })
   .catch(error => console.error('Error cargando el pensum:', error));
