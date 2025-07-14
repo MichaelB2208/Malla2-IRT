@@ -19,6 +19,41 @@ fetch('pensum.json')
       creditosSpan.textContent = total;
     };
 
+    const exportarPDF = () => {
+      const aprobadasArray = [...aprobadas];
+      let contenido = "Materias Aprobadas:\n\n";
+
+      for (const cuatri in data) {
+        for (const materia of data[cuatri]) {
+          if (aprobadas.has(materia.id)) {
+            contenido += `• ${materia.nombre} (${materia.id}) - ${materia.creditos} créditos\n`;
+          }
+        }
+      }
+
+      const blob = new Blob([contenido], { type: "application/pdf" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "malla_aprobadas.pdf";
+      link.click();
+    };
+
+    const exportarCSV = () => {
+      let contenido = "Cuatrimestre,Materia,ID,Créditos,Aprobada\n";
+      for (const [cuatri, materias] of Object.entries(data)) {
+        for (const materia of materias) {
+          const aprobada = aprobadas.has(materia.id) ? "Sí" : "No";
+          contenido += `${cuatri},"${materia.nombre}",${materia.id},${materia.creditos},${aprobada}\n`;
+        }
+      }
+
+      const blob = new Blob([contenido], { type: "text/csv" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "malla_completa.csv";
+      link.click();
+    };
+
     const renderMalla = () => {
       malla.innerHTML = '';
 
@@ -86,7 +121,6 @@ fetch('pensum.json')
       }
     };
 
-    // Botón reset
     resetBtn.addEventListener('click', () => {
       if (confirm('¿Estás seguro de que deseas reiniciar la malla?')) {
         aprobadas.clear();
@@ -95,6 +129,9 @@ fetch('pensum.json')
         calcularCreditos();
       }
     });
+
+    document.getElementById("exportar-pdf").addEventListener("click", exportarPDF);
+    document.getElementById("exportar-csv").addEventListener("click", exportarCSV);
 
     document.querySelector('.close-btn').addEventListener('click', () => {
       document.getElementById('modal').classList.add('hidden');
