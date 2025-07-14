@@ -2,21 +2,20 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Malla Interactiva - Ingeniería en Redes y Telecomunicaciones</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Malla Curricular Ingeniería en Redes y Telecomunicaciones</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <h1>Malla Curricular - Ingeniería en Redes y Telecomunicaciones</h1>
 
-  <div style="text-align: center; margin-bottom: 15px;">
-    <button id="reset-btn">Reiniciar Malla</button>
-    <button id="exportar-pdf">Exportar a PDF</button>
-    <button id="exportar-csv">Exportar a Excel (CSV)</button>
-    <p><strong>Créditos aprobados:</strong> <span id="creditos-aprobados">0</span></p>
-  </div>
+  <h1>Malla Curricular Ingeniería en Redes y Telecomunicaciones</h1>
 
   <div id="malla"></div>
+
+  <p>Créditos aprobados: <span id="creditos-aprobados">0</span></p>
+
+  <button id="reset-btn">Reiniciar Malla</button>
+  <button id="exportar-pdf">Exportar PDF</button>
+  <button id="exportar-csv">Exportar CSV</button>
 
   <!-- Modal -->
   <div id="modal" class="modal hidden">
@@ -27,10 +26,10 @@
       <p><strong>Créditos:</strong> <span id="modal-creditos"></span></p>
       <p><strong>Prerrequisitos:</strong> <span id="modal-prereq"></span></p>
       <p><strong>Correquisitos:</strong> <span id="modal-coreq"></span></p>
-      <button id="aprobar-btn">Marcar como Aprobada</button>
+      <button id="aprobar-btn"></button>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
