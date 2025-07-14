@@ -25,7 +25,6 @@ fetch('data/pensum.json')
     };
 
     const exportarPDF = () => {
-      const aprobadasArray = [...aprobadas];
       let contenido = "Materias Aprobadas:\n\n";
 
       for (const cuatri in data) {
