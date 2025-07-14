@@ -1,5 +1,10 @@
-fetch('pensum.json')
-  .then(response => response.json())
+fetch('data/pensum.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Error en la carga del pensum.json: ' + response.status);
+    }
+    return response.json();
+  })
   .then(data => {
     const malla = document.getElementById('malla');
     const creditosSpan = document.getElementById('creditos-aprobados');
@@ -81,7 +86,7 @@ fetch('pensum.json')
           }
 
           div.innerHTML = `
-            <strong>${materia.nombre}</strong>
+            <strong>${materia.nombre}</strong><br>
             <span><strong>ID:</strong> ${materia.id}</span><br>
             <span><strong>Créditos:</strong> ${materia.creditos}</span>
           `;
