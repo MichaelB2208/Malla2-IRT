@@ -1,1 +1,105 @@
+{
+  "1er Cuatrimestre": [
+    {
+      "nombre": "Orientación Académica e Institucional",
+      "id": "HUM-111",
+      "creditos": 1,
+      "prerrequisitos": "N/A",
+      "correquisitos": "N/A"
+    },
+    {
+      "nombre": "Lengua Española I",
+      "id": "HUM-113",
+      "creditos": 4,
+      "prerrequisitos": "N/A",
+      "correquisitos": "N/A"
+    },
+    {
+      "nombre": "Matemáticas Generales",
+      "id": "MAT-111",
+      "creditos": 4,
+      "prerrequisitos": "N/A",
+      "correquisitos": "N/A"
+    },
+    {
+      "nombre": "Dibujo Técnico I",
+      "id": "ING-121",
+      "creditos": 3,
+      "prerrequisitos": "N/A",
+      "correquisitos": "N/A"
+    },
+    {
+      "nombre": "Química General",
+      "id": "QUM-1110",
+      "creditos": 3,
+      "prerrequisitos": "N/A",
+      "correquisitos": "N/A"
+    },
+    {
+      "nombre": "Laboratorio Química General",
+      "id": "QUIM-1111",
+      "creditos": 1,
+      "prerrequisitos": "N/A",
+      "correquisitos": "QUIM-1110"
+    },
+    {
+      "nombre": "Realidad Social Dominicana y Latinoamericana",
+      "id": "HUM-114",
+      "creditos": 3,
+      "prerrequisitos": "N/A",
+      "correquisitos": "N/A"
+    }
+  ],
+  "2do Cuatrimestre": [
+    {
+      "nombre": "Humanidades I",
+      "id": "HUM-116",
+      "creditos": 2,
+      "prerrequisitos": "HUM-111",
+      "correquisitos": "N/A"
+    },
+    {
+      "nombre": "Lengua Española II",
+      "id": "HUM-117",
+      "creditos": 4,
+      "prerrequisitos": "HUM-113",
+      "correquisitos": "N/A"
+    },
+    {
+      "nombre": "Cálculo I",
+      "id": "MAT-112",
+      "creditos": 5,
+      "prerrequisitos": "MAT-111",
+      "correquisitos": "N/A"
+    },
+    {
+      "nombre": "Ecología",
+      "id": "HUM-118",
+      "creditos": 2,
+      "prerrequisitos": "N/A",
+      "correquisitos": "N/A"
+    },
+    {
+      "nombre": "Física I",
+      "id": "FIS-1110",
+      "creditos": 3,
+      "prerrequisitos": "MAT-111",
+      "correquisitos": "N/A"
+    },
+    {
+      "nombre": "Laboratorio Física I",
+      "id": "FIS-1111",
+      "creditos": 1,
+      "prerrequisitos": "MAT-111",
+      "correquisitos": "FIS-1110"
+    },
+    {
+      "nombre": "Dibujo Técnico II",
+      "id": "ING-122",
+      "creditos": 3,
+      "prerrequisitos": "ING-121",
+      "correquisitos": "N/A"
+    }
+  ]
+}
 
